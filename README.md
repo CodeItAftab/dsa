@@ -31,14 +31,51 @@ g++ -std=c++17 bubble_sort.cpp -O2 -o bubble_sort.exe
 # run (reading from input.txt and writing to console)
 .\bubble_sort.exe < input.txt
 
-# or capture output to a file
-.\bubble_sort.exe < input.txt > output.txt
+```markdown
+# dsa — Data Structures & Algorithms
+
+Educational C++ implementations of basic algorithms and data-structures.
+This workspace focuses on simple, easy-to-follow examples useful for learning
+and experimentation.
+
+## Repository layout
+
+- `bits/` — utility headers (e.g. `stdc++.h`).
+- `sorting/` — sorting algorithm examples and sample IO files.
+  - `bubble_sort.cpp` — bubble sort implementation (example).
+  - `selection_sort.cpp` — selection sort implementation.
+  - `insertion_sort.cpp` — insertion sort implementation.
+  - `merge_sort.cpp` — merge sort implementation.
+  - `quick_sort.cpp` — quick sort implementation.
+  - `input.txt` — example input used for testing.
+  - `output.txt` — expected or sample output (optional).
+
+> Note: file list may change as you add examples or helper utilities.
+
+## Build & run (Windows, PowerShell)
+
+Open PowerShell and change to the `sorting` directory:
+
+```powershell
+cd D:\workspace\dsa\sorting
 ```
 
-3. Input format used by the examples (common pattern):
+Compile one of the examples with `g++` (MinGW/MSYS2):
 
-- First line: an integer n (number of elements).
-- Next n values: the sequence of integers to sort.
+```powershell
+# compile (example)
+g++ -std=c++17 -O2 bubble_sort.cpp -o bubble_sort.exe
+
+# run reading from input.txt
+.\bubble_sort.exe < input.txt
+
+# run with inline input
+echo 5 3 5 1 2 4 | .\bubble_sort.exe
+```
+
+Common input format used by the examples:
+- First token: integer `n` (number of elements)
+- Next `n` tokens: the `n` integers to sort
 
 Example `input.txt`:
 
@@ -53,23 +90,50 @@ Expected output (sorted list):
 1 2 3 4 5
 ```
 
+## Verbose visual traces
+
+Some sorting examples include an optional, educational `-v` (verbose)
+mode which prints step-by-step descriptions to the console (swaps, merges,
+and pivot placements). Run like this to see a trace:
+
+```powershell
+.\bubble_sort.exe -v < input.txt
+.\quick_sort.exe -v < input.txt
+```
+
+The verbose traces are intended for learning and debugging only; the
+default behavior (no `-v`) prints only the final sorted array.
+
 ## Notes & troubleshooting
 
-- If compilation fails, ensure you have a C++ compiler installed and available in PATH (e.g. g++ from MinGW or MSYS2).
-- If the program produces wrong results, double-check array indexing and loop boundaries (off-by-one bugs are common in simple sorting code).
-- Use `-Wall -Wextra` when compiling to see helpful warnings:
+- If compilation fails, ensure a C++ compiler (g++) is installed and on `PATH`.
+- Use `-Wall -Wextra` when compiling to surface helpful warnings:
 
 ```powershell
 g++ -std=c++17 -Wall -Wextra bubble_sort.cpp -o bubble_sort.exe
 ```
 
+- Output formatting: examples generally print the sorted values space-separated.
+  Some older examples may omit spaces — if you want consistent formatting I can
+  standardize all programs.
+
+## Next steps (suggested)
+
+- Standardize final output formatting across all examples.
+- Add an automated test-harness to run multiple algorithms on the same inputs
+  and record traces for side-by-side comparison.
+- Produce an HTML/JS visualization that animates the verbose traces.
+
 ## Contributing
 
-Pull requests and small improvements are welcome. If you add new algorithm files, update this README with a short description and examples.
+Pull requests and improvements are welcome. If you add new algorithm files,
+please update this README with a short description and example usage.
 
 ## License
 
-This repository uses a permissive license. Add a license file (e.g. `LICENSE`) if you want to make the license explicit.
+This repository uses a permissive license. Add a `LICENSE` file to make it explicit.
 
 ---
-Created/updated: README to help build and run the sorting examples.
+Updated: added usage examples and `-v` verbose trace instructions.
+
+```
